@@ -14,7 +14,7 @@ namespace Assingment1
             string ans = "";
             for(int i = 0; i < str.Length; i++)
             {
-                if (str[i] == ' ' && (i < str.Length && str[i + 1] == ' '))
+                if (str[i] == ' ' && (i + 1 < str.Length && str[i + 1] == ' '))
                 {
                     continue;
                 }
