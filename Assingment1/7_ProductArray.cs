@@ -10,6 +10,7 @@ namespace Assingment1
     {
         private static void PrintProduct(int[] array, int size)
         {
+            /*
             int[] ans = new int[size];
             int[] leftProduct = new int[size];
             int[] rightProduct = new int[size];
@@ -34,6 +35,63 @@ namespace Assingment1
             for (int i = 0; i < size; i++)
             {
                 Console.Write(String.Format("{0} ", ans[i]));
+            }
+            */
+
+            int[] ans = new int[array.Length];
+            int zeroCount = 0;
+            for(int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == 0)
+                {
+                    zeroCount++;
+                }
+            }
+            
+            int product = 1;
+            if(zeroCount > 1)
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.Write("{0} ", 0);
+                }
+                return;
+            }
+            
+            for(int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == 0)
+                {
+                    continue;
+                }
+                product *= array[i];
+            }
+            if(zeroCount == 1)
+            {
+                for(int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] == 0)
+                    {
+                        ans[i] = product;
+                    }
+                    else
+                    {
+                        ans[i] = 0;
+                    }
+                }
+            }
+            else
+            {
+                for(int i = 0; i < array.Length; i++)
+                {
+                     ans[i] = product / array[i];
+                }
+            }
+            
+            // printing
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write("{0} ", ans[i]);
             }
         }
         public static void FindProductArray()
